@@ -28,12 +28,9 @@ if sys.argv[1] == "b":
             if i + j < len(data):
                 s += data[i + j]
         window.append(s)
-            
-    old_depth = window[0]
-    for depth in window:
-        if old_depth < depth:
-            increased += 1
-        old_depth = depth
+        if i != 0:
+            if window[i - 1] < window[i]:
+                increased += 1
     
     print(f"increased {increased} times")
 
